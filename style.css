@@ -43,11 +43,11 @@ html {
 }
 /* For screens smaller than 768px (typically mobile devices) */
 @media (max-width: 768px) {
-    /* Add your CSS adjustments here */
-    .mt-48 {
-        margin-top: 24px; /* Example adjustment */
+    .page-title svg {
+        width: 1em; /* Match the width to the font size of the header */
+        height: 1em; /* Match the height to the font size of the header */
+        margin-bottom: -0.2em; /* Adjust vertical alignment if needed */
     }
-    /* Add more adjustments as needed */
 }
 
 /* Example CSS for touch-friendly buttons */
