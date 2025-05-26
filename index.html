@@ -347,6 +347,34 @@
       color: var(--accent);
     }
     
+    /* Current Learning Section */
+    #current-learning {
+      padding: 5rem 0;
+    }
+    
+    .current-learning-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .current-learning-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .current-learning-title h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      background: var(--accent);
+      bottom: -10px;
+      left: 25%;
+      border-radius: 2px;
+    }
+    
     /* Experience Section */
     .timeline {
       position: relative;
@@ -945,6 +973,23 @@
     </div>
   </section>
 
+  <section id="current-learning">
+    <div class="container">
+      <div class="section-title">
+        <h2>Current Learning</h2>
+      </div>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3><i class="fas fa-book-reader"></i> New Skills</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-check-circle"></i> JWT</li>
+            <li><i class="fas fa-check-circle"></i> AWC Technical Essentials</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="experience">
     <div class="container">
       <div class="section-title">
@@ -1033,4 +1078,84 @@
       </div>
     </div>
   </section>
-  
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="copyright">
+        &copy; 2023 Gagan Prajapati. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <script>
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('fa-times');
+    });
+    
+    // Smooth Scroll
+    const smoothScroll = (target) => {
+      const element = document.querySelector(target);
+      window.scrollTo({
+        top: element.offsetTop - 70,
+        behavior: 'smooth'
+      });
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('fa-times');
+        smoothScroll(this.getAttribute('href'));
+      });
+    });
+  </script>
+</body>
+</html>
