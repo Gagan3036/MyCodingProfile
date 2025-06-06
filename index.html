@@ -3,1159 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gagan Prajapati | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #5a2f88;
-      --primary-light: #8a5cb8;
-      --primary-dark: #42226a;
-      --accent: #ff7e5f;
-      --light: #f8f9fa;
-      --dark: #333;
-      --gray: #6c757d;
-      --transition: all 0.3s ease;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    body {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: var(--dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    
-    /* Navigation */
-    nav {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      transition: var(--transition);
-    }
-    
-    nav.scrolled {
-      padding: 0.7rem 2rem;
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    
-    nav .logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    nav .logo img {
-      height: 45px;
-      width: 45px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-right: 0.7rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: var(--transition);
-      border: 2px solid transparent;
-    }
-    
-    nav .logo img:hover {
-      transform: scale(1.1);
-      border-color: var(--primary);
-    }
-    
-    nav .nav-links {
-      display: flex;
-      align-items: center;
-    }
-    
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-      position: relative;
-      transition: var(--transition);
-    }
-    
-    nav a:hover {
-      color: var(--primary-light);
-    }
-    
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      bottom: -5px;
-      left: 0;
-      transition: var(--transition);
-    }
-    
-    nav a:hover::after {
-      width: 100%;
-    }
-    
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-    
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, rgba(224, 195, 252, 0.8) 0%, rgba(142, 197, 252, 0.8) 100%);
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('/api/placeholder/1200/800') center/cover no-repeat;
-      opacity: 0.1;
-      z-index: -1;
-    }
-    
-    .hero-content {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary-dark);
-      letter-spacing: 1px;
-      font-weight: 700;
-    }
-    
-    .hero p {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      color: var(--dark);
-    }
-    
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .btn {
-      padding: 0.8rem 2rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      border: 2px solid var(--primary);
-    }
-    
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(90, 47, 136, 0.3);
-    }
-    
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-    
-    .btn-outline:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(90, 47, 136, 0.3);
-    }
-    
-    /* Section Styling */
-    section {
-      padding: 5rem 0;
-      position: relative;
-    }
-    
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-    
-    .section-title h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      display: inline-block;
-      position: relative;
-    }
-    
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 4px;
-      background: var(--accent);
-      bottom: -10px;
-      left: 25%;
-      border-radius: 2px;
-    }
-    
-    /* About Section */
-    .about {
-      background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    
-    .about p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .project-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      transition: var(--transition);
-    }
-    
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-    
-    .project-img {
-      height: 180px;
-      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-    }
-    
-    .project-content {
-      padding: 1.5rem;
-    }
-    
-    .project-content h3 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-    
-    .project-content p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-    
-    /* Skills Section */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-    
-    .skill-category {
-      background: white;
-      border-radius: 15px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      flex: 1 1 300px;
-      transition: var(--transition);
-    }
-    
-    .skill-category:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-    
-    .skill-category h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .skill-list {
-      list-style: none;
-    }
-    
-    .skill-list li {
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .skill-list li i {
-      color: var(--accent);
-    }
-    
-    /* Current Learning Section */
-    #current-learning {
-      padding: 5rem 0;
-    }
-    
-    .current-learning-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .current-learning-title h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      position: relative;
-      display: inline-block;
-    }
-    
-    .current-learning-title h2::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 4px;
-      background: var(--accent);
-      bottom: -10px;
-      left: 25%;
-      border-radius: 2px;
-    }
-    
-    /* Experience Section */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background: var(--primary-light);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -2px;
-      border-radius: 2px;
-    }
-    
-    .timeline-item {
-      position: relative;
-      width: 50%;
-      padding: 1rem 2rem;
-      box-sizing: border-box;
-      margin-bottom: 2rem;
-    }
-    
-    .timeline-item:nth-child(odd) {
-      left: 0;
-    }
-    
-    .timeline-item:nth-child(even) {
-      left: 50%;
-    }
-    
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: var(--primary);
-      border-radius: 50%;
-      top: 1.5rem;
-      border: 4px solid white;
-      box-shadow: 0 0 0 3px var(--primary-light);
-    }
-    
-    .timeline-item:nth-child(odd)::after {
-      right: -14px;
-    }
-    
-    .timeline-item:nth-child(even)::after {
-      left: -14px;
-    }
-    
-    .timeline-content {
-      background: white;
-      border-radius: 15px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      position: relative;
-      transition: var(--transition);
-    }
-    
-    .timeline-content:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-    
-    .timeline-content h3 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-    
-    .timeline-content .date {
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-    
-    /* Education Section */
-    .education-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .education-card {
-      background: white;
-      border-radius: 15px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: var(--transition);
-    }
-    
-    .education-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-    
-    .education-card h3 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-    
-    .education-card .degree {
-      color: var(--gray);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
-    .education-card .year {
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Achievements & Certificates */
-    .achievement-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .achievement-card {
-      background: white;
-      border-radius: 15px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .achievement-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-    
-    .achievement-card::before {
-      content: '\f559';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      position: absolute;
-      top: -15px;
-      right: -15px;
-      font-size: 5rem;
-      color: rgba(90, 47, 136, 0.05);
-      z-index: 0;
-    }
-    
-    .achievement-card h3 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .achievement-card p {
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* Contact Section */
-    .contact-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .contact-info {
-      background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-    
-    .contact-info h3 {
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .contact-item .icon {
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    
-    .contact-item a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    
-    .contact-item a:hover {
-      color: var(--accent);
-    }
-    
-    .contact-form {
-      background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-    
-    .contact-form h3 {
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--gray);
-    }
-    
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      outline: none;
-      transition: var(--transition);
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(90, 47, 136, 0.2);
-    }
-    
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    
-    .btn-submit {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: var(--transition);
-      width: 100%;
-    }
-    
-    .btn-submit:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(90, 47, 136, 0.3);
-    }
-    
-    /* Social Links */
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .social-link {
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    
-    .social-link:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(90, 47, 136, 0.3);
-    }
-    
-    /* Footer */
-    footer {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-      color: white;
-      padding: 3rem 0 1.5rem;
-      text-align: center;
-    }
-    
-    .footer-content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .footer-links a {
-      color: white;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-    
-    .copyright {
-      margin-top: 2rem;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.9rem;
-    }
-    
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--primary);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition);
-      opacity: 0;
-      visibility: hidden;
-      z-index: 999;
-    }
-    
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background: var(--primary-dark);
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(90, 47, 136, 0.3);
-    }
-    
-    /* Responsive Design */
-    @media screen and (max-width: 992px) {
-      .timeline::after {
-        left: 31px;
-      }
-      
-      .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-      }
-      
-      .timeline-item:nth-child(even) {
-        left: 0;
-      }
-      
-      .timeline-item:nth-child(odd)::after,
-      .timeline-item:nth-child(even)::after {
-        left: 18px;
-      }
-    }
-    
-    @media screen and (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      nav .nav-links {
-        position: fixed;
-        top: 0;
-        right: -300px;
-        width: 280px;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 80px 30px 30px;
-        transition: var(--transition);
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-      }
-      
-      nav .nav-links.active {
-        right: 0;
-      }
-      
-      nav .nav-links a {
-        margin: 1rem 0;
-      }
-      
-      .hamburger {
-        display: block;
-        z-index: 1001;
-      }
-      
-      nav.active .hamburger {
-        position: fixed;
-        right: 30px;
-      }
-    }
-    
-    @media screen and (max-width: 576px) {
-      .section-title h2 {
-        font-size: 2rem;
-      }
-      
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 1.1rem;
-      }
-      
-      .hero-buttons {
-        flex-direction: column;
-      }
-      
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .hero {
-        padding-top: 120px;
-      }
-    }
-  </style>
+  <title>Gagan Prajapati Portfolio</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/gagan-round-image.png">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav id="navbar">
-    <div class="logo">
-      <img src="gagan.png" alt="Gagan Prajapati">
-      <strong>Gagan Prajapati</strong>
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <button class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
-    </button>
+  <nav>
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#skills">Skills</a>
+    <a class="nav-link" href="#current-learning">Learning</a>
+    <a class="nav-link" href="#certifications">Certifications</a>
+    <a class="nav-link" href="#experience">Experience</a>
+    <a class="nav-link" href="#contact">Contact</a>
   </nav>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Gagan Prajapati</h1>
-      <p>AWS Cloud Practitioner | Developer | AI Automation | Project Deep Blue S10 Semifinalist | Pre-final Year Engineering Student </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
-        <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+  <div class="container">
+    <div class="header-grid">
+      <div class="header-box">
+        <div class="header-title">Gagan Prajapati</div>
+        <div class="header-role">Cloud Practitioner & AI Developer</div>
+      </div>
+      <div class="header-box">
+        <div class="header-title">AWS | DevOps | AI/ML</div>
+        <div class="header-role">Project Deep Blue S10 Semifinalist</div>
       </div>
     </div>
-  </section>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>About Me</h2>
+    <section class="about-section" id="about">
+      <div class="section-title">About Me</div>
+      <div class="card">
+        <p>
+          I’m a passionate and dedicated developer interested in cloud and DevOps. I enjoy learning new technologies and have earned certifications like the AWS Certified Cloud Practitioner to deepen my skills. I’m committed to continuous growth and contributing effectively to real-world projects.
+        </p>
       </div>
-      <div class="about">
-        <p>I’m a passionate and dedicated developer interested in cloud and DevOps. I enjoy learning new technologies and have earned certifications like the AWS Certified Cloud Practitioner to deepen my skills. I’m committed to continuous growth and contributing effectively to real-world projects.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects">
-    <div class="container">
-      <div class="section-title">
-        <h2>Projects</h2>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img">
-            <i class="fas fa-vr-cardboard"></i>
-          </div>
-          <div class="project-content">
-            <h3>Visionary Home App</h3>
-            <p>AI Enhanced Home Design with Augmented Reality, allowing users to visualize and plan their interior designs before implementation.</p>
-          </div>
+    <section class="projects-section" id="projects">
+      <div class="section-title">Projects</div>
+      <div class="card-grid">
+        <div class="card">
+          <strong>Visionary Home App</strong>
+          <p>AI Enhanced Home Design with Augmented Reality, allowing users to visualize and plan their interior designs before implementation.</p>
         </div>
-        <div class="project-card">
-          <div class="project-img">
-            <i class="fas fa-recycle"></i>
-          </div>
-          <div class="project-content">
-            <h3>EcoEarn</h3>
-            <p>The Waste-to-Reward application aims to revolutionize waste management by encouraging users to segregate and dispose of their waste responsibly while rewarding them for their efforts.</p>
-          </div>
+        <div class="card">
+          <strong>EcoEarn</strong>
+          <p>Waste-to-Reward application to revolutionize waste management by encouraging responsible disposal and rewarding users.</p>
         </div>
-        <div class="project-card">
-          <div class="project-img">
-            <i class="fas fa-running"></i>
-          </div>
-          <div class="project-content">
-            <h3>Human Action Recognition</h3>
-            <p>A human action recognition model designed to detect and classify various human activities from video footage with high accuracy.</p>
-          </div>
+        <div class="card">
+          <strong>Human Action Recognition</strong>
+          <p>Model to detect and classify human activities from video footage with high accuracy.</p>
         </div>
-        <div class="project-card">
-          <div class="project-img">
-            <i class="fas fa-user-check"></i>
-          </div>
-          <div class="project-content">
-            <h3>Student Attendance System</h3>
-            <p>C Program to efficiently manage student information and attendance records with reporting and analytics capabilities.</p>
-          </div>
+        <div class="card">
+          <strong>Student Attendance System</strong>
+          <p>C Program to efficiently manage student information and attendance records with analytics.</p>
         </div>
-        <div class="project-card">
-          <div class="project-img">
-            <i class="fas fa-search"></i>
-          </div>
-          <div class="project-content">
-            <h3>Cutoff Search Tool</h3>
-            <p>This project simplifies the process of finding admission cutoffs for Maharashtra's 11th grade students and parents.</p>
-          </div>
+        <div class="card">
+          <strong>Cutoff Search Tool</strong>
+          <p>Simplifies finding admission cutoffs for Maharashtra's 11th grade students and parents.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills">
-    <div class="container">
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3><i class="fas fa-cloud"></i> DevOps</h3>
-          <ul class="skill-list">
-            <li><i class="fas fa-check-circle"></i> CI/CD Pipelines</li>
-            <li><i class="fas fa-check-circle"></i> Docker & Containerization</li>
-            <li><i class="fas fa-check-circle"></i> ML Deployment</li>
-            <li><i class="fas fa-check-circle"></i> Infrastructure as Code</li>
+    <section class="skills-section" id="skills">
+      <div class="section-title">Skills</div>
+      <div class="card-grid">
+        <div class="card">
+          <strong>DevOps</strong>
+          <ul>
+            <li>CI/CD Pipelines</li>
+            <li>Docker & Containerization</li>
+            <li>ML Deployment</li>
+            <li>Infrastructure as Code</li>
           </ul>
         </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-brain"></i> AI & ML</h3>
-          <ul class="skill-list">
-            <li><i class="fas fa-check-circle"></i> Machine Learning</li>
-            <li><i class="fas fa-check-circle"></i> Artificial Intelligence</li>
-            <li><i class="fas fa-check-circle"></i> LLM & Generative AI</li>
-            <li><i class="fas fa-check-circle"></i> Model Training & Deployment</li>
+        <div class="card">
+          <strong>AI & ML</strong>
+          <ul>
+            <li>Machine Learning</li>
+            <li>Artificial Intelligence</li>
+            <li>LLM & Generative AI</li>
+            <li>Model Training & Deployment</li>
           </ul>
         </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-code"></i> Programming</h3>
-          <ul class="skill-list">
-            <li><i class="fas fa-check-circle"></i> Python</li>
-            <li><i class="fas fa-check-circle"></i> C</li>
-            <li><i class="fas fa-check-circle"></i> HTML/CSS</li>
-            <li><i class="fas fa-check-circle"></i> Data Analysis</li>
+        <div class="card">
+          <strong>Programming</strong>
+          <ul>
+            <li>Python</li>
+            <li>C</li>
+            <li>HTML/CSS</li>
+            <li>Data Analysis</li>
           </ul>
         </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-sitemap"></i> System Architecture</h3>
-          <ul class="skill-list">
-            <li><i class="fas fa-check-circle"></i> Architecture Planning</li>
-            <li><i class="fas fa-check-circle"></i> Solution Design</li>
-            <li><i class="fas fa-check-circle"></i> Problem Solving</li>
-            <li><i class="fas fa-check-circle"></i> Analytical Thinking</li>
+        <div class="card">
+          <strong>System Architecture</strong>
+          <ul>
+            <li>Architecture Planning</li>
+            <li>Solution Design</li>
+            <li>Problem Solving</li>
+            <li>Analytical Thinking</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="current-learning">
-    <div class="container">
-      <div class="section-title">
-        <h2>Current Learning</h2>
-      </div>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3><i class="fas fa-book-reader"></i> New Skills</h3>
-          <ul class="skill-list">
-            <li><i class="fas fa-check-circle"></i> JWT</li>
-            <li><i class="fas fa-check-circle"></i> AWC Technical Essentials</li>
+    <section class="learning-section" id="current-learning">
+      <div class="section-title">Current Learning</div>
+      <div class="card-grid">
+        <div class="card">
+          <ul>
+            <li>AWC Technical Essentials</li>
+            <li>Cloud Networks</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="experience">
-    <div class="container">
-      <div class="section-title">
-        <h2>Experience & Roles</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="date">2025 - Present</span>
-              <h3>Lead Developer</h3>
-              <p>Green Crew, LTCE</p>
-              <p>Leading development initiatives in sustainability and student engagement projects.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="date">2024 - Present</span>
-              <h3>Lead Developer</h3>
-              <p>AugmentEra</p>
-              <p>Overseeing technical development of AR-integrated AI solutions for immersive applications.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="date">2025 - Present</span>
-              <h3>Technical Team Member</h3>
-              <p>Data Science Student's Association, LTCE</p>
-              <p>Contributing to academic and real-world data science initiatives and student workshops.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="date">2025 - Present</span>
-              <h3>Researcher</h3>
-              <p>Exclusive Technical Team, CSE-DS, LTCE</p>
-              <p>Conducting research on LLMs and generative AI algorithms, focusing on scalable model deployment.</p>
-            </div>
-          </div>
-    </div>
-  </section>   
-
-  <section id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact Me</h2>
-      </div>
-      <div class="contact-container">
-        <div class="contact-info">
-          <h3>Get in Touch</h3>
-          <div class="contact-item">
-            <div class="icon"><i class="fas fa-envelope"></i></div>
-            <a href="mailto:gaganprajapati899@gmail.com">gaganprajapati899@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <div class="icon"><i class="fas fa-phone-alt"></i></div>
-            <a href="tel:+919326878773">+91 9326878773</a>
-          </div>
-          <div class="social-links">
-            <a class="social-link" href="https://www.linkedin.com/in/gagan-prajapati-333791218/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a class="social-link" href="https://github.com/Gagan3036" target="_blank"><i class="fab fa-github"></i></a>
-            <a class="social-link" href="https://leetcode.com/u/Gagan3036/" target="_blank"><i class="fas fa-code"></i></a>
-          </div>
+    <section class="cert-section" id="certifications">
+      <div class="section-title">Certifications & Badges</div>
+      <div class="card-grid">
+        <div class="card">
+          <img class="badge-img" src="assets/aws-cloud-quest-cloud-practitioner.png" alt="AWS Cloud Quest: Cloud Practitioner Badge">
+          <div class="badge-title">AWS Cloud Quest: Cloud Practitioner</div>
+          <div class="badge-org">Amazon Web Services</div>
+          <div class="badge-date">Issued June 03, 2025</div>
         </div>
-  
-        <!-- <div class="contact-form">
-          <h3>Send a Message</h3>
-          <form>
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea id="message" placeholder="Enter your message" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Send</button>
-          </form>
-        </div> -->
+        <!-- Add more badges below as you provide image paths -->
+        <!--
+        <div class="card">
+          <img class="badge-img" src="assets/your-other-cert.png" alt="Other Certification">
+          <div class="badge-title">[Certification Name]</div>
+          <div class="badge-org">[Issuer]</div>
+          <div class="badge-date">Issued [Date]</div>
+        </div>
+        -->
+        <div class="card">
+          <img class="badge-img" src="assets/forage-logo.png" alt="AWS APAC - Solutions Architecture Job Simulation Badge">
+          <div class="badge-title">AWS APAC - Solutions Architecture Job Simulation</div>
+          <div class="badge-org">Forage</div>
+          <div class="badge-date">Issued March 14, 2025</div>
+        </div>
+        <div class="card">
+          <img class="badge-img" src="assets/deeplearningAi.png" alt="Convolutional Neural Networks Badge">
+          <div class="badge-title">Convolutional Neural Networks</div>
+          <div class="badge-org">deeplearning.ai</div>
+          <div class="badge-date">Issued January 30, 2025</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#contact">Contact</a>
+    <section class="experience-section" id="experience">
+      <div class="section-title">Experience & Roles</div>
+      <div class="card-grid">
+        <div class="card">
+          <strong>Lead Developer</strong>
+          <div>Green Crew, LTCE (2025 - Present)</div>
+          <p>Leading development initiatives in sustainability and student engagement projects.</p>
+        </div>
+        <div class="card">
+          <strong>Lead Developer</strong>
+          <div>AugmentEra (2024 - Present)</div>
+          <p>Overseeing technical development of AR-integrated AI solutions for immersive applications.</p>
+        </div>
+        <div class="card">
+          <strong>Technical Team Member</strong>
+          <div>Data Science Student's Association, LTCE (2025 - Present)</div>
+          <p>Contributing to academic and real-world data science initiatives and student workshops.</p>
+        </div>
+        <div class="card">
+          <strong>Researcher</strong>
+          <div>Exclusive Technical Team, CSE-DS, LTCE (2025 - Present)</div>
+          <p>Research on LLMs and generative AI algorithms, focusing on scalable model deployment.</p>
+        </div>
       </div>
-      <div class="copyright">
-        &copy; 2023 Gagan Prajapati. All Rights Reserved.
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="section-title">Contact Me</div>
+      <div class="card">
+        <p><strong>Email:</strong> <a href="mailto:gaganprajapati899@gmail.com">gaganprajapati899@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+919326878773">+91 9326878773</a></p>
+        <p>
+          <a class="nav-link" href="https://www.linkedin.com/in/gagan-prajapati-333791218/" target="_blank">LinkedIn</a> |
+          <a class="nav-link" href="https://github.com/Gagan3036" target="_blank">GitHub</a> |
+          <a class="nav-link" href="https://leetcode.com/u/Gagan3036/" target="_blank">LeetCode</a>
+        </p>
       </div>
-    </div>
-  </footer>
-
-  <a href="#" class="back-to-top" id="backToTop">
-    <i class="fas fa-chevron-up"></i>
-  </a>
-
-  <script>
-    // Back to Top Button
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('active');
-      } else {
-        backToTopBtn.classList.remove('active');
-      }
-    });
-    
-    backToTopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    const navLinks = document.getElementById('navLinks');
-    const hamburger = document.getElementById('hamburger');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-    
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('fa-times');
-    });
-    
-    // Smooth Scroll
-    const smoothScroll = (target) => {
-      const element = document.querySelector(target);
-      window.scrollTo({
-        top: element.offsetTop - 70,
-        behavior: 'smooth'
-      });
-    }
-    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('fa-times');
-        smoothScroll(this.getAttribute('href'));
-      });
-    });
-  </script>
+    </section>
+  </div>
 </body>
 </html>
