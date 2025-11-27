@@ -17,6 +17,7 @@
     <a class="nav-link" href="#certifications">Certifications</a>
     <a class="nav-link" href="#experience">Experience</a>
     <a class="nav-link" href="#contact">Contact</a>
+    <a class="nav-link" href="#resume" onclick="showResume()">Resume</a>
   </nav>
 
   <div class="container">
@@ -216,5 +217,51 @@
       </div>
     </section>
   </div>
+
+  <!-- PDF Viewer Section -->
+  <div id="pdf-viewer" class="pdf-container" style="display: none;">
+    <div class="pdf-header">
+      <button class="back-btn" onclick="hideResume()">← Back to Portfolio</button>
+      <h2>Resume - Gagan Prajapati</h2>
+      <a href="assets/resume.pdf" download class="download-btn">Download PDF</a>
+    </div>
+    <iframe id="pdf-frame" src="assets/resume.pdf" frameborder="0"></iframe>
+  </div>
+
+  <script>
+    function showResume() {
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('nav').style.display = 'none';
+      document.getElementById('pdf-viewer').style.display = 'block';
+      
+      // Update URL without page reload
+      history.pushState({page: 'resume'}, 'Resume', '/resume.pdf');
+    }
+
+    function hideResume() {
+      document.querySelector('.container').style.display = 'block';
+      document.querySelector('nav').style.display = 'flex';
+      document.getElementById('pdf-viewer').style.display = 'none';
+      
+      // Update URL back to home
+      history.pushState({page: 'home'}, 'Portfolio', '/');
+    }
+
+    // Handle browser back/forward buttons
+    window.onpopstate = function(event) {
+      if (window.location.pathname === '/resume.pdf') {
+        showResume();
+      } else {
+        hideResume();
+      }
+    };
+
+    // Check URL on page load
+    window.onload = function() {
+      if (window.location.pathname === '/resume.pdf') {
+        showResume();
+      }
+    };
+  </script>
 </body>
 </html>

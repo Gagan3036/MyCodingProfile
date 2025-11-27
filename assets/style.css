@@ -158,6 +158,59 @@ nav {
   text-align: center;
 }
 
+/* PDF Viewer Styles */
+.pdf-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--card);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.pdf-header h2 {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.back-btn, .download-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+
+.back-btn:hover, .download-btn:hover {
+  background: #ff6b47;
+  transform: translateY(-2px);
+}
+
+#pdf-frame {
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 80px);
+  border: none;
+}
+
 @media (max-width: 700px) {
   .header-grid {
     flex-direction: column;
@@ -172,5 +225,13 @@ nav {
   }
   .card-grid {
     gap: 1rem;
+  }
+  .pdf-header {
+    padding: 0.8rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .pdf-header h2 {
+    font-size: 1.2rem;
   }
 }
