@@ -17,7 +17,7 @@
     <a class="nav-link" href="#certifications">Certifications</a>
     <a class="nav-link" href="#experience">Experience</a>
     <a class="nav-link" href="#contact">Contact</a>
-    <a class="nav-link" href="#resume" onclick="showResume()">Resume</a>
+    <a class="nav-link" href="#resume">Resume</a>
     <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵</button>
   </nav>
 
@@ -261,11 +261,11 @@
 
     function showResume() {
       document.querySelector('.container').style.display = 'none';
-      document.querySelector('nav').style.display = 'none';
+      document.querySelector('nav').style.display = 'flex';
       document.getElementById('pdf-viewer').style.display = 'block';
       
-      // Update URL without page reload
-      history.pushState({page: 'resume'}, 'Resume', '/resume.pdf');
+      // Update URL using hash routing
+      window.location.hash = '#resume';
     }
 
     function hideResume() {
@@ -274,12 +274,12 @@
       document.getElementById('pdf-viewer').style.display = 'none';
       
       // Update URL back to home
-      history.pushState({page: 'home'}, 'Portfolio', '/');
+      window.location.hash = '';
     }
 
-    // Handle browser back/forward buttons
-    window.onpopstate = function(event) {
-      if (window.location.pathname === '/resume.pdf') {
+    // Handle hash changes (browser back/forward buttons)
+    window.onhashchange = function() {
+      if (window.location.hash === '#resume') {
         showResume();
       } else {
         hideResume();
@@ -288,7 +288,7 @@
 
     // Check URL on page load
     window.onload = function() {
-      if (window.location.pathname === '/resume.pdf') {
+      if (window.location.hash === '#resume') {
         showResume();
       }
       
