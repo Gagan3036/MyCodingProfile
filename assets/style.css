@@ -46,6 +46,27 @@ nav {
   z-index: 100;
 }
 
+.music-btn {
+  background: var(--accent);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  box-shadow: 0 2px 8px rgba(90,47,136,0.2);
+}
+
+.music-btn:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(90,47,136,0.3);
+}
+
 .nav-link {
   font-family: 'IBM Plex Mono', monospace;
   color: var(--primary);
