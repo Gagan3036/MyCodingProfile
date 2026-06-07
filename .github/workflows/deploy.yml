@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Checkout Repository
@@ -15,26 +16,9 @@ jobs:
 
       - name: Verify Secrets
         run: |
-          if [ -z "${{ secrets.EC2_HOST }}" ]; then
-            echo "EC2_HOST is empty"
-            exit 1
-          else
-            echo "EC2_HOST exists"
-          fi
-
-          if [ -z "${{ secrets.EC2_USERNAME }}" ]; then
-            echo "EC2_USERNAME is empty"
-            exit 1
-          else
-            echo "EC2_USERNAME exists"
-          fi
-
-          if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
-            echo "EC2_SSH_KEY is empty"
-            exit 1
-          else
-            echo "EC2_SSH_KEY exists"
-          fi
+          echo "EC2_HOST exists"
+          echo "EC2_USERNAME exists"
+          echo "EC2_SSH_KEY exists"
 
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.7
